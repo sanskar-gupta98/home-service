@@ -1,0 +1,537 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Main.css" />
+    <title>Foodie</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      
+        box-sizing: border-box;
+      
+        font-family: "Baloo Bhai 2", cursive;
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+      
+        background-color: #262626;
+      
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 9999;
+        overflow: hidden;
+      }
+      /* #navbar{
+      position:fixed;
+      top:0;
+      left:0;
+      } */
+      
+      ul {
+        display: flex;
+        list-style: none;
+        /* text-align: center; */
+        color: #fff;
+        gap: 2rem;
+        position: fixed;
+        right: 0;
+        padding-right: 15px;
+      }
+      nav a {
+        color: white;
+        text-decoration: none;
+      }
+      a:hover {
+        background-color: rgb(22, 22, 94);
+        border-radius: 50px;
+        padding: 25;
+      }
+      .logo {
+        justify-content: flex-start;
+        align-items: flex-start;
+        font-size: 2rem;
+        color: #fff;
+      
+        margin-right: 700px;
+      }
+      .btn {
+        margin-top: 30px;
+      
+        color: white;
+        cursor: pointer;
+        border-radius: 25px;
+        padding: 1rem 2rem;
+      }
+      
+      img {
+        width: 100%;
+      
+        object-fit: cover;
+        object-position: center;
+      }
+      header {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)),
+          url('First.jpg');
+        background-position: center;
+        background-size: cover;
+      
+        height: 100vh;
+      }
+      #home {
+        display: flex;
+      
+        text-align: center;
+        flex-direction: column;
+        padding: 220px 200px;
+        color: #fff;
+        justify-content: center;
+        align-items: center;
+      
+        text-align: center;
+      }
+      .overlay {
+        background: rgb(0, 0, 0, -5);
+        height: 100vh;
+      }
+      .overlay button {
+        position: absolute;
+          top: 400px; /* adjust the top position as needed */
+          left: 640px; /* adjust the left position as needed */
+          padding: 15px 30px;
+          background-color: #4CAF50;
+          color: white;
+          border: none;
+          border-radius: 4px;
+          font-size: 18px;
+          cursor: pointer;
+          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+      }
+      
+      .overlay button:hover {
+        background-color: #45a049;
+      }
+      
+      .overlay button:active {
+        background-color: #3e8e41;
+      }
+      
+      #mobile {
+        display: none;
+        height: 70px;
+        line-height: 40px;
+        /* background-color: rgba(0, 0, 0, 0.200); */
+        background-color: #262626;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 9999;
+        overflow: hidden;
+      }
+      
+      #mobile ul li {
+        justify-content: flex-end;
+        padding: -25px 5px;
+        margin: -38px 0;
+        font-size: 1rem;
+        color: white;
+      }
+      #mobile ul li a {
+        display: flex;
+        text-decoration: none;
+        color: white;
+      }
+      @media screen and (max-width: 768px) {
+        #mobile {
+          display: block;
+        }
+        #navbar {
+          display: none;
+        }
+        #home {
+          display: flex;
+      
+          margin-top: 20px;
+      
+          text-align: center;
+      
+          color: #fff;
+          justify-content: center;
+          align-items: center;
+      
+          text-align: center;
+        }
+      
+        .logo1 {
+          justify-content: flex-start;
+          align-items: flex-start;
+          font-size: 1.8rem;
+          color: #fff;
+      
+          margin-left: 20px;
+          margin-right: 500px;
+          margin-top: 15px;
+        }
+        a:hover {
+          background-color: rgb(22, 22, 94);
+          border-radius: 16px;
+          padding: 6px 8px 6px 8px;
+          margin: -7px;
+        }
+        header {
+          background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)),
+            url(https://images.unsplash.com/photo-1589302168068-964664d93dc0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80);
+          background-position: center;
+          background-size: cover;
+      
+          height: 180vh;
+        }
+      }
+      .title {
+        text-align: center;
+        width: 100%;
+        color: yellow;
+      }
+      
+      #menu {
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        grid-gap: 20px 40px;
+        background: rgb(245, 242, 242);
+        min-height: 100vh;
+        /* margin-bottom: 20px; */
+      }
+      .heading {
+        background: rgb(245, 242, 242);
+        color: #373333;
+        margin-bottom: 30px;
+        padding: 60px 0 30px 0;
+        grid-column: 1/-1;
+        text-align: center;
+      }
+      .heading > h3 {
+        font-weight: 600;
+        font-size: 22px;
+        letter-spacing: 5px;
+      }
+      .card {
+        display: grid;
+        position: relative;
+        grid-template-rows: auto 1fr;
+        border-radius: 15px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        margin: 10px 20px;
+      }
+      
+      .card img {
+        position: relative;
+        width: 100%;
+        height: 50vh;
+        border-radius: 15px 15px 0 0;
+      }
+      
+      .details {
+        padding: 20px 10px;
+        display: grid;
+        grid-template-rows: auto 1fr 50px;
+        grid-row-gap: 15px;
+      }
+      .details-sub {
+        display: grid;
+        grid-template-columns: auto auto;
+      }
+      .details-sub h5 {
+        font-weight: 600;
+        font-size: 18px;
+      }
+      .price {
+        text-align: right;
+      }
+      .details p {
+        color: #6f6f6f;
+        font-size: 15px;
+        line-height: 25px;
+        align-self: stretch;
+      }
+      .details button {
+        /* background-color: #cb202d; */
+        border: none;
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 7px;
+        width: 180px;
+      }
+      
+      #about {
+        padding: 25px 0;
+      }
+      .about_row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 0 100px;
+      }
+      .about_column {
+        flex: 1;
+      }
+      #btn1 {
+        margin-top: 20px;
+        padding: 10px 10px;
+        border-radius: 15px;
+      }
+      .about_column img {
+        width: 500px;
+        height: 500px;
+        border-radius: 70%;
+        object-fit: fill;
+        align-items: end;
+      }
+      .title {
+        color: #373333;
+        margin-bottom: 30px;
+        padding: 50px 0 30px 0;
+        text-align: center;
+      }
+      
+      #Book {
+        background: rgb(245, 242, 244);
+        color: white;
+        min-height: 100vh;
+      }
+      .title1 {
+        color: #373333;
+        margin-bottom: 30px;
+        padding: 50px 0 30px 0;
+        text-align: center;
+      }
+      form {
+        width: 450px;
+        background-color: white;
+      
+        box-shadow: 0 0 20px 0 rgb(213, 212, 210);
+        margin: auto;
+        margin-top: -20px;
+        margin-bottom: 10px;
+        border-radius: 20px;
+      }
+      .inp_box {
+        width: 350px;
+        height: 37px;
+        /* margin-top: 20px; */
+        margin: 25px 45px 0 45px;
+      
+        padding: 0 10px;
+        border-radius: 14px;
+        border: 1px solid #777;
+        outline: none;
+      }
+      .text_area {
+        height: 160px;
+        padding-top: 10px;
+      }
+      .btn2 {
+        border-radius: 20px;
+        margin: 20px 45px;
+        padding: 0 10px;
+        /* margin: auto; */
+        width: 30%;
+      }
+      
+      textarea {
+        height: 150px;
+        padding-top: 10px;
+      }
+      .btn2 {
+        border-radius: 15px;
+        color: #fff;
+        margin-top: 18px;
+        padding: 10px;
+      }
+      button {
+        background-color: rgb(22, 22, 94);
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: rgb(94, 158, 61);
+      }
+      footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem 2rem;
+        width: 100%;
+        background-color: #262626;
+        color: white;
+      }
+ 
+    </style>
+</head>
+
+<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <div class="container">
+
+        <header>
+            <nav id="navbar">
+                <div class="logo"><span>HomeBlitza</span></div>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#menu">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </nav>
+            <div id="mobile">
+                <div class="First.jpg"><span>HomeBlitza</span></div>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#menu">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </div>
+
+            <div class="overlay">
+                <section id="home">
+                    <h1 class="h-primary">Welcome to HomeBlitza </h1>
+                    <br>
+                    <p>The one place where every need of yours is fullfilled</p>
+                    <p>We are hereby welcomes you to our website we helps everyone </p>
+                </section>
+            </div>
+        </header>
+
+        <div id="menu">
+            <div class="heading">
+                <h1>Services</h1>
+                <h3>Today's Special</h3>
+            </div>
+            <div class="card">
+                <img src="gardening.jpg" alt="Gardening">
+                <div class="details">
+                    <div class="details-sub">
+                        <h5>Gardening.</h5>
+                        <h5 class="price"> ₹100 per sqm </h5>
+                    </div>
+                    <p>Gardening is Where You can Beautify the nature around us</p>
+                    <button onclick="redirectToPage()">Book Now</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="Clean.jpg" alt="Housekeeping">
+                <div class="details">
+                    <div class="details-sub">
+                        <h5>Housekeeping.</h5>
+                        <h5 class="price"> ₹300 per sqm </h5>
+                    </div>
+                    <p>A clean House is where god lives.</p>
+                    <button onclick="redirectToPage()">Book Now</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="painting.jpg" alt="Painting">
+                <div class="details">
+                    <div class="details-sub">
+                        <h5>Painting</h5>
+                        <h5 class="price"> ₹170 per sqm </h5>
+                    </div>
+                    <p>To fill colors in your life</p>
+                    <button onclick="redirectToPage()">Book Now</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="Mechanics.jpg" alt="Mechanical Services">
+                <div class="details">
+                    <div class="details-sub">
+                        <h5>Mechanical Services.</h5>
+                        <h5 class="price"> ₹500 </h5>
+                    </div>
+                    <p>To Make your car geared up</p>
+                    <button onclick="redirectToPage()">Book Now</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="pest.jpg" alt="Pest Control">
+                <div class="details">
+                    <div class="details-sub">
+                        <h5>Pest Control.</h5>
+                        <h5 class="price"> ₹230 per sqm </h5>
+                    </div>
+                    <p>Mosquitos?? no worries we are here</p>
+                    <button onclick="redirectToPage()">Book Now</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src='Labour.jpg' alt="On Demand Services">
+                <div class="details">
+                    <div class="details-sub">
+                        <h5>On Demand Services.</h5>
+                        <h5 class="price"> ₹400 per person </h5>
+                    </div>
+                    <p>Anything You Wish we provide</p>
+                    <button onclick="redirectToPage()">Book Now</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="about">
+            <h1 class="title">About us</h1>
+            <div class="about_row">
+                <div class="about_column">
+                    <p>Welcome to our home service website! We are a team of dedicated professionals who are committed to providing top-notch home services to homeowners and businesses alike. Our services include cleaning, painting, gardening, pest control, and much more.
+
+                        At our core, we believe that a clean and well-maintained home is essential for a happy and healthy life. That's why we take pride in providing the highest quality home services to our clients. Whether you need a deep cleaning, a fresh coat of paint, or help with your lawn and garden, we've got you covered.
+
+                        Our team consists of experienced and trained professionals who are passionate about what they do. We use the latest techniques and equipment to ensure that every job is completed to the highest standards of quality and efficiency.
+
+                        We are committed to providing excellent customer service and strive to exceed your expectations with every visit. Our goal is to make your life easier by taking care of your home service needs so that you can focus on the things that matter most to you.
+
+                        Thank you for considering us for your home service needs. We look forward to the opportunity to serve you and make your home a cleaner, more beautiful, and healthier place to live.</p>
+                </div>
+                <div class="about_column">
+                    <img src="logo.png" alt="Logo">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div>
+            <p>
+                Designed by Sanskar Gupta
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function redirectToPage() {
+            window.location.href = "Book.html"; // Redirects to Booking.html
+        }
+    </script>
+
+</body>
+</html>

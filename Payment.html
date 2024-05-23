@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Payment Page</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-image: url('login.jpg');
+			background-repeat: no-repeat;
+			background-size: cover;
+			margin: 0;
+			padding: 0;
+		}
+
+		h1 {
+			font-size: 36px;
+			color: #333;
+			margin-top: 50px;
+			margin-bottom: 30px;
+			text-align: center;
+		}
+
+		form {
+			max-width: 500px;
+			margin: 0 auto;
+			padding: 30px;
+			background-color: #fff;
+			box-shadow: 0 0 10px rgba(0,0,0,0.2);
+			border-radius: 5px;
+			margin-bottom: 30px;
+		}
+
+		input[type="text"], input[type="email"], input[type="tel"], input[type="number"] {
+			display: block;
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 20px;
+			border: none;
+			border-radius: 5px;
+			background-color: #f2f2f2;
+			color: #333;
+			font-size: 16px;
+		}
+
+		label {
+			display: block;
+			margin-bottom: 10px;
+			font-size: 16px;
+			color: #333;
+		}
+
+		.payment-info {
+			margin-top: 20px;
+			font-size: 14px;
+			color: #999;
+			text-align: center;
+		}
+        .payment-info button {
+			display: block;
+			width: 100%;
+			padding: 10px;
+			border: none;
+			border-radius: 5px;
+			background-color: #333;
+			color: #fff;
+			font-size: 16px;
+			cursor: pointer;
+			margin-top: 20px;
+		}
+		.payment-methods {
+			max-width: 500px;
+			margin: 0 auto;
+			padding: 30px;
+			background-color: #fff;
+			box-shadow: 0 0 10px rgba(0,0,0,0.2);
+			border-radius: 5px;
+			text-align: center;
+		}
+
+		.payment-methods button {
+			display: block;
+			width: 100%;
+			padding: 10px;
+			border: none;
+			border-radius: 5px;
+			background-color: #333;
+			color: #fff;
+			font-size: 16px;
+			cursor: pointer;
+			margin-top: 20px;
+		}
+
+		.payment-methods button:hover {
+			background-color: #555;
+		}
+
+	</style>
+</head>
+<body>
+	<h1>Payment Page</h1>
+
+	<section>
+		<form onsubmit="handleSubmit(event)">
+			<h2>Pay with Card</h2>
+
+			<label for="cardno">Card Number</label>
+			<input type="number" id="cardno" name="cardno" placeholder="Enter your card number" required>
+
+			<label for="expirydate">Expiry Date</label>
+			<input type="text" id="expirydate" name="expirydate" placeholder="MM/YY" required>
+
+			<label for="cvv">CVV</label>
+			<input type="number" id="cvv" name="cvv" placeholder="Enter your CVV" required>
+
+			<label for="cardholdername">Cardholder Name</label>
+			<input type="text" id="cardholdername" name="cardholdername" placeholder="Enter the name on your card" required>
+
+			<label for="paymentto">Payment To</label>
+			<input type="text" id="paymentto" name="paymentto" placeholder="Enter the payment recipient" required>
+
+			<div class="payment-info">
+                <p>We accept all major credit and debit cards.</p>
+                <button type="submit">Submit</button>
+            </div>
+    
+        </form>
+    </section>
+
+    <script>
+	function handleSubmit(event) {
+		event.preventDefault(); // Prevent the form from submitting the default way
+		alert('Submitted');
+		window.location.href = '1web.html';
+	}
+    </script>
+  
+</body>
+</html>
